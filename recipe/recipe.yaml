@@ -26,17 +26,19 @@ requirements:
     - python ${{ python_min }}.*
     - setuptools
   run:
-    - pygments >=2.3.0
     - python >=${{ python_min }}
-    - xmltodict >=0.12.0
     - ruamel.yaml >=0.15.0
+    - xmltodict >=0.12.0
+    - pygments >=2.3.0
 
 tests:
   - python:
       imports:
         - jc
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - requirements:
       run:
         - python ${{ python_min }}.*
